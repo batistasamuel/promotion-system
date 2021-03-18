@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# STEPS
+
+* Create project command:
+```
+rails new promotion-system --skip-action-mailbox --skip-active-storage --skip-action-cable
+
+```
+
+* Initialize git into project directory
+```
+git init
+
+```
