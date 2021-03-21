@@ -20,6 +20,16 @@ class PromotionsController < ApplicationController
     end
   end
 
+  def edit
+    @promotion = Promotion.find(params[:id])
+  end
+
+  def update
+    @promotion = Promotion.find(params[:id])
+    @promotion.update(promotion_params)
+    redirect_to @promotion
+  end
+
   def generate_coupons
     @promotion = Promotion.find(params[:id])
     
