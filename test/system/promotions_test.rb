@@ -164,4 +164,20 @@ class PromotionsTest < ApplicationSystemTestCase
     assert_text 'Super promoção de ovos de páscoa!'
     assert_text 'PASCOA10'
   end
+
+  test 'destroy a promotion' do
+    promotion = Promotion.create!(name: 'Natal',
+                                  description: 'Promoção de Natal',
+                                  code: 'NATAL10', discount_rate: 10, 
+                                  coupon_quantity: 100,
+                                  expiration_date: '22/12/2033')
+    
+    visit root_path
+    click_on 'Promoções'
+    click_on 'Natal'
+    click_on 'Excluir promoção'
+
+    assert_no_text 'Natal'
+    assert_text 'Promoção excluída com sucesso'
+  end
 end

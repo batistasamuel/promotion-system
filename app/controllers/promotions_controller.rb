@@ -30,6 +30,13 @@ class PromotionsController < ApplicationController
     redirect_to @promotion
   end
 
+  def destroy
+    @promotion = Promotion.find(params[:id])
+    @promotion.destroy
+    flash[:notice] = 'Promoção excluída com sucesso'
+    redirect_to promotions_path
+  end
+
   def generate_coupons
     @promotion = Promotion.find(params[:id])
     
